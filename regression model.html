@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<link rel="stylesheet" href="reg.css">
+
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="reg">
+        <h1>Regression Model</h1>
+      <p>  To predict the ratings of the App (before/after launching it on Play Store).
+This is clearly a regression problem.</p>
+
+<h3>•	Let’s start with importing libraries and reading required csv file</h3>
+
+  <div class=""><img src="IMG sent\1rf.png" alt=""></div><br><br><br>
+<h3>•	Data Cleaning :</h3>
+<p>The most critical thing from which patterns could be obtained is data. It may be a single review or a bundle of them.
+   Whatever data comes in, could be used to draw value out of it. Data comes with unexpected values too, which should be handled
+   before it affects the performance of trained models that predict the outcome.</p><br><br>
+
+<p>Here is the first step to clean the data that will make the results “more” accurate.</p>
+
+<div class=""><img src="IMG sent\2rf.png" alt=""></div><br><br><br>
+
+<h3>•	Data transformation</h3>
+
+<p>Data transformation is the process of changing the format, structure, or values of data i.e converting data from one format
+   or structure into another format or structure. Data transformation may be constructive (adding, copying, and replicating data),
+    destructive (deleting fields and records), aesthetic (standardizing salutations or street names), or structural (renaming, moving,
+    and combining columns in a database).In this particular dataset, we have also transformed several columns i.e. ‘Category’ , ‘Type’
+    , ‘Content Rating’, ‘Android Version’, ‘App’, ‘Installs’, ‘Size’, ‘Price’, ‘Review’. After transforming the data into the required format,
+     we can drop the entries(or the columns) which are no longer required.</p>
+
+
+<div class=""><img src="IMG sent\3rf.png" alt=""></div><br><br><br>
+
+<div class=""><img src="IMG sent\4rf.png" alt=""></div><br><br><br>
+
+
+<div class=""><img src="IMG sent\5rf.png" alt=""></div><br><br><br>
+
+<h3>•	Model Building</h3>
+<p>
+For this particular “googleplaystore.csv” dataset, the Linear Regression model has been used for predicting the Ratings.
+This dataset has been trained on a Multi-Linear Regression Model.</p><br><br>
+<p>Steps carried out for building a Linear Regression Model in the assignment are as follows:<p>
+
+<h4>Step I: Deciding X and Y</h4>
+<p>For our Linear Regression Model, 'y' would be the output that we expect our model to give that is the Rating. Hence,
+  we create a Series which contains the 'Rating' column of the dataset and 'x' would be the input or the features on which
+  the ratings of the application would depend. Hence, we create a Series which contains all the relevant features' column of the dataset.
+</p>
+<h4>Step II: Splitting the dataset into Train and Test Datasets</h4>
+
+<p>After deciding our x and y for the model, the next step is to divide the dataset into train and test datasets.<br>
+1.	Train dataset- The actual dataset that we use to train the model .The model sees and learns from this data.<br>
+2.	Test dataset- The test set is a set of observations used to evaluate the performance of the model using some performance metric. <br>
+The sample of data used to provide an unbiased evaluation of a final model fit on the training dataset.<br>
+We divide the dataset into train and set tests using the sklearn.model_selection.train_test_split(*arrays, options*) method.<br>
+
+
+For this assignment we split the dataset into train and test datasets in the ratio 4:1 that is:<br>
+80% - TRAINING DATASET <br>
+
+20% - TESTING DATASET <br>
+</p>
+<h4>Step III.</h4>
+<p>The next step is to actually construct a Linear Regression model which would predict the Ratings of the application
+   depending upon some features. We build the Linear Regression model using :<br>
+from sklearn.linear_model import LinearRegression <br>
+reg=LinearRegression() <br>
+This creates a Linear Regression model with an object(i.e an instance) ‘reg’ <br>
+</p>
+<h4>Step IV.</h4>
+<p>After initializing the model, we need to train the model so as to make the model learn about how to predict the ratings.
+We implement this using reg.fit(x,y,[,sample weight]) method which basically fits the linear model. In this method we give an
+input of the training sets(x_train,y_train) which we have created earlier.
+</p>
+<h4>Step V.</h4>
+<p>The next important step to check the accuracy score of the model which tells about how correct or accuarte our model is
+  on predicting the Ratings. This is implemented using the reg.score(x,y,[,sample weight]) method which takes an input as the
+  test sets(x_test,y_test) which were created earlier.</p>
+
+<h4>Step VI. </h4>
+<p>Our model is now ready to predict the Ratings of various applications given some features.</p>
+<div class=""><img src="IMG sent\6rf.png" alt=""></div><br><br><br>
+
+    </div>
+
+  </body>
+</html>
